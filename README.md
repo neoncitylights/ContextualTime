@@ -1,4 +1,8 @@
 # ContextualTime
+![GitHub](https://img.shields.io/github/license/neoncitylights/ContextualTime)
+[![.NET](https://github.com/neoncitylights/ContextualTime/actions/workflows/dotnet.yml/badge.svg)](https://github.com/neoncitylights/ContextualTime/actions/workflows/dotnet.yml)
+[![CodeQL](https://github.com/neoncitylights/ContextualTime/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/neoncitylights/ContextualTime/actions/workflows/codeql-analysis.yml)
+
 **ContextualTime** is an experimental NLP library for understanding phrases related to dates and time, and convert it to
 machine-readable data.
 
@@ -49,8 +53,8 @@ the resulting `DateTime` is less than `DateTime.MinValue` or greater than `DateT
  * [System.ArgumentOutOfRangeException](https://docs.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception?view=net-5.0)
 
 ## Notes
- * ''Languages'' supported: English
- * ''Calendars'' supported: Gregorian
+ * Languages supported: English
+ * Calendars supported: Gregorian
 
 The current implementation is experimental and will change. As use cases are discovered and more time is spent developing, this library will eventually become stable, as with its architecture.
 
