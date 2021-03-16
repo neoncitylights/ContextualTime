@@ -3,16 +3,16 @@ using System;
 namespace ContextualTime {
     public class NextPhrase : TimePhrase {
         public NextPhrase(UnitOfTime unitOfTime) {
-            Coefficient = 1;
+            Quantity = 1;
             UnitOfTime = unitOfTime;
         }
         
         public NextPhrase(int coefficient, UnitOfTime unitOfTime) {
-            Coefficient = coefficient;
+            Quantity = coefficient;
             UnitOfTime = unitOfTime;
         }
    
-        public override int Coefficient { get; }
+        public override int Quantity { get; }
         public override UnitOfTime UnitOfTime { get; }
     }
 }

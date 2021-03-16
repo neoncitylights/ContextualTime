@@ -12,7 +12,6 @@ machine-readable data.
 ## Public API
 ### Usage
 All phrases inherit from a common abstract class known as `TimePhrase`.
-Every time phrase contains a coefficient, and a unit of time.
 
 ```c#
 Parser parser = new();
@@ -24,8 +23,25 @@ var wayInTheFuture = parser.parse("next 2 centuries"); // new NextPhrase( 2, Uni
 var friday = parser.parse("on Friday"); // new OnPhrase( DayOfWeek.Friday );
 ```
 
+Every time phrase contains these properties:
+ - `Quantity`: an `int` representing the amount of the specified unit of time
+ - `UnitOfTime`: A member of the `UnitOfTime` enum
+```c#
+yesterday.Quantity; // -1 (integer)
+yesterday.UnitOfTime; // UnitOfTime.Day (enum)
+
+tomorrow.Quantity; // 1 (integer)
+tomorrow.UnitOfTime; // UnitOfTime.Day (enum)
+
+wayInTheFuture.Quantity; // 2 (integer)
+wayInTheFuture.UnitOfTime; // UnitOfTime.Century (enum)
+
+friday.Quantity; // 4 (integer) (number of days from current day)
+friday.UnitOfTime; // UnitOfTime.Day (enum)
+```
+
 They can be turned into machine-readable data by calling
-`GetAsDateTime()`, which will return an instance of `System.DateTime()`.
+`GetAsDateTime()`, which will return an instance of `System.DateTime`.
 ```c#
 // Getting machine-readable data from phrases
 // The below examples convert them into strings, for the sake of an example
