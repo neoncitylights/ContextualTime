@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using NodaTime;
 
 namespace ContextualTime.Demo {
 	public class Program {
