@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 
 namespace ContextualTime.Demo {
@@ -9,13 +9,13 @@ namespace ContextualTime.Demo {
 				Console.WriteLine( "Type in a time phrase:" );
 				string timePhraseString = Console.ReadLine();
 				try {
-					TimePhrase timePhrase = parser.Parse(timePhraseString);
+					TimePhrase timePhrase = parser.Parse( timePhraseString );
 					Console.WriteLine(
-						timePhrase.GetAsDateTime().ToString(CultureInfo.InvariantCulture));
+						timePhrase.GetAsDateTime().ToString( CultureInfo.InvariantCulture ) );
 				}
-				catch(Exception e) {
-					Console.WriteLine("Time unable to be read.");
-					Console.WriteLine(e.Message);
+				catch ( Exception e ) {
+					Console.WriteLine( "Time unable to be read." );
+					Console.WriteLine( e.Message );
 				}
 
 				Console.WriteLine();
