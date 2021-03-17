@@ -10,8 +10,10 @@ namespace ContextualTime.Demo {
 				string timePhraseString = Console.ReadLine();
 				try {
 					TimePhrase timePhrase = parser.Parse( timePhraseString );
-					Console.WriteLine(
-						timePhrase.GetAsDateTime().ToString( CultureInfo.InvariantCulture ) );
+					Console.WriteLine( $"┣ Current date/time:\t{DateTime.Now}" );
+					Console.WriteLine( $"┣ Modified date/time:\t{timePhrase.GetAsDateTime().ToString( CultureInfo.InvariantCulture )}" );
+					Console.WriteLine( $"┣ Quantity:     {timePhrase.Quantity}" );
+					Console.WriteLine( $"┗ Unit of time: {timePhrase.UnitOfTime}" );
 				}
 				catch ( Exception e ) {
 					Console.WriteLine( "Time unable to be read." );
