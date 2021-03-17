@@ -20,7 +20,7 @@ Parser parser = new();
 var yesterday = parser.parse("yesterday"); // new YesterdayPhrase();
 var tomorrow = parser.parse("tomorrow"); // new TomorrowPhrase();
 var wayInTheFuture = parser.parse("next 2 centuries"); // new NextPhrase( 2, UnitOfTime.Century );
-var friday = parser.parse("on Friday"); // new OnPhrase( DayOfWeek.Friday );
+var friday = parser.parse("on Friday"); // new OnPhrase( DayOfWeek.Tuesday, DayOfWeek.Friday );
 ```
 
 Every time phrase contains these properties:
@@ -36,7 +36,7 @@ tomorrow.UnitOfTime; // UnitOfTime.Day (enum)
 wayInTheFuture.Quantity; // 2 (integer)
 wayInTheFuture.UnitOfTime; // UnitOfTime.Century (enum)
 
-friday.Quantity; // 4 (integer) (number of days from current day)
+friday.Quantity; // 3 (integer) (number of days from current day)
 friday.UnitOfTime; // UnitOfTime.Day (enum)
 ```
 
@@ -48,7 +48,7 @@ They can be turned into machine-readable data by calling
 yesterday.GetAsDateTime().ToString(); // 03/15/2021 00:52:19
 tomorrow.GetAsDateTime().ToString(); // 03/17/2021 00:52:19
 wayInTheFuture.GetAsDateTime().ToString(); // 03/16/2221 00:52:19
-friday.GetAsDateTime().ToString(); // 03/20/2021 00:52:19
+friday.GetAsDateTime().ToString(); // 03/19/2021 00:52:19
 ```
 
 ### Extension methods for `System.DateTime`

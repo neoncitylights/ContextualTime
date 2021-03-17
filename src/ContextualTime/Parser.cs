@@ -15,7 +15,7 @@ namespace ContextualTime {
 				TokenTomorrow => new TomorrowPhrase(),
 				TokenYesterday => new YesterdayPhrase(),
 				TokenToday => new TodayPhrase(),
-				TokenOn => new OnPhrase( Enum.Parse<DayOfWeek>(words[1],true) ),
+				TokenOn => new OnPhrase( DateTime.Now.DayOfWeek, Enum.Parse<DayOfWeek>(words[1],true) ),
 				TokenNext => GetNewPhrase(words),
 				TokenLast => GetLastPhrase(words),
 				_ => new TodayPhrase()
