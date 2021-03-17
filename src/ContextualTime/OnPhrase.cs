@@ -9,5 +9,6 @@ namespace ContextualTime {
 		
 		public override int Quantity { get; }
 		public override UnitOfTime UnitOfTime => UnitOfTime.Day;
+		public override Tense Tense => Tense.Future;
 	}
 }

@@ -13,7 +13,8 @@ namespace ContextualTime.Demo {
 					Console.WriteLine( $"┣ Current date/time:\t{DateTime.Now}" );
 					Console.WriteLine( $"┣ Modified date/time:\t{timePhrase.GetAsDateTime().ToString( CultureInfo.InvariantCulture )}" );
 					Console.WriteLine( $"┣ Quantity:     {timePhrase.Quantity}" );
-					Console.WriteLine( $"┗ Unit of time: {timePhrase.UnitOfTime}" );
+					Console.WriteLine( $"┣ Unit of time: {timePhrase.UnitOfTime}" );
+					Console.WriteLine( $"┗ Tense:        {timePhrase.Tense}" );
 				}
 				catch ( Exception e ) {
 					Console.WriteLine( "Time unable to be read." );

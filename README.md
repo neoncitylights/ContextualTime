@@ -26,18 +26,23 @@ var friday = parser.parse("on Friday"); // new OnPhrase( DayOfWeek.Tuesday, DayO
 Every time phrase contains these properties:
  - `Quantity`: an `int` representing the amount of the specified unit of time
  - `UnitOfTime`: A member of the `UnitOfTime` enum
+ - `Tense`: A member of the `Tense` enum, which can either be the past, present, or future
 ```c#
 yesterday.Quantity; // -1 (integer)
 yesterday.UnitOfTime; // UnitOfTime.Day (enum)
+yesterday.Tense; // Tense.Past (enum)
 
 tomorrow.Quantity; // 1 (integer)
 tomorrow.UnitOfTime; // UnitOfTime.Day (enum)
+tomorrow.Tense; // Tense.Future (enum)
 
 wayInTheFuture.Quantity; // 2 (integer)
 wayInTheFuture.UnitOfTime; // UnitOfTime.Century (enum)
+wayInTheFuture.Tense; // Tense.Future (enum)
 
 friday.Quantity; // 3 (integer) (number of days from current day)
 friday.UnitOfTime; // UnitOfTime.Day (enum)
+friday.Tense; // Tense.Future (enum)
 ```
 
 They can be turned into machine-readable data by calling
@@ -58,8 +63,7 @@ The ContextualTime library provides 4 extension methods that extend the `System.
  * `DateTime.AddCenturies()`: Implemented internally as `DateTime.AddYears(n * 100)`
  * `DateTime.AddMillenniums()`: Implemented internally as `DateTime.AddYears(n * 1000)`
 
-All of these methods will still handle exceptions the same way that the `AddNNN()` methods handles exceptions, in that they will throw a `ArgumentOutOfRangeException` if:
-the resulting `DateTime` is less than `DateTime.MinValue` or greater than `DateTime.MaxValue`
+All of these methods will still handle exceptions the same way that the `AddNNN()` methods handles exceptions, in that they will throw a `ArgumentOutOfRangeException` if  the resulting `DateTime` is less than `DateTime.MinValue` or greater than `DateTime.MaxValue`.
 
 **C# source documentation**:
  * [System.DateTime.AddDays()](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.adddays?view=net-5.0)

@@ -11,5 +11,6 @@ namespace ContextualTime {
 		
 		public override int Quantity { get; }
 		public override UnitOfTime UnitOfTime { get; }
+		public override Tense Tense => Tense.Past;
 	}
 }
