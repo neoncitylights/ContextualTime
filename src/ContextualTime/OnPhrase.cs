@@ -6,7 +6,8 @@ namespace ContextualTime {
 			
 			Quantity = Math.Abs((int)currentDay - (int)newDay);
 		}
-		
+
+		public override string Preposition => "on";
 		public override int Quantity { get; }
 		public override UnitOfTime UnitOfTime => UnitOfTime.Day;
 		public override Tense Tense => Tense.Future;

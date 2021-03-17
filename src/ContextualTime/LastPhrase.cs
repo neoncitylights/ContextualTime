@@ -8,7 +8,8 @@ namespace ContextualTime {
 			Quantity = coefficient < 0 ? coefficient : coefficient * -1;
 			UnitOfTime = unitOfTime;
 		}
-		
+
+		public override string Preposition => "last";
 		public override int Quantity { get; }
 		public override UnitOfTime UnitOfTime { get; }
 		public override Tense Tense => Tense.Past;

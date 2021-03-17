@@ -11,7 +11,8 @@ namespace ContextualTime {
             Quantity = coefficient;
             UnitOfTime = unitOfTime;
         }
-   
+
+        public override string Preposition => "next";
         public override int Quantity { get; }
         public override UnitOfTime UnitOfTime { get; }
         public override Tense Tense => Tense.Future;
