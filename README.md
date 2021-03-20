@@ -101,9 +101,11 @@ AddByUnit( DateTime, int, UnitOfTime );
 DateTime today = DateTime.Now;
 
 // Go forward 2 weeks
+// internally calls `DateTime.AddWeeks( 2 )`, which calls `DateTime.AddDays( 14 )`
 today.AddByUnit( 2, UnitOfTime.Week ); // 04/03/2021 13:35:59 (DateTime instance)
 
 // Go back 3 days
+// internally calls `DateTime.AddDays( -3 )`
 today.AddByUnit( -3, UnitOfTime.Day ); // 03/17/2021 13:35:59 (DateTime instance)
 ```
 
