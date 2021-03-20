@@ -65,17 +65,35 @@ friday.GetAsDateTime().ToString(); // 03/19/2021 00:52:19
 ```
 
 ### Extension methods for `System.DateTime`
-The ContextualTime library provides 4 extension methods that extend the `System.DateTime` class:
- * `DateTime.AddWeeks()`: Implemented internally as `DateTime.AddDays(n * 7)`
- * `DateTime.AddDecades()`: Implemented internally as `DateTime.AddYears(n * 10)`
- * `DateTime.AddCenturies()`: Implemented internally as `DateTime.AddYears(n * 100)`
- * `DateTime.AddMillenniums()`: Implemented internally as `DateTime.AddYears(n * 1000)`
+The ContextualTime library provides extension methods that extend the `System.DateTime` class:
+ * `DateTime.AddWeeks(int)`: Implemented internally as `DateTime.AddDays(n * 7)`
+ * `DateTime.AddDecades(int)`: Implemented internally as `DateTime.AddYears(n * 10)`
+ * `DateTime.AddCenturies(int)`: Implemented internally as `DateTime.AddYears(n * 100)`
+ * `DateTime.AddMillenniums(int)`: Implemented internally as `DateTime.AddYears(n * 1000)`
 
-All of these methods will still handle exceptions the same way that the `AddNNN()` methods handles exceptions, in that they will throw a [System.ArgumentOutOfRangeException](https://docs.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception?view=net-5.0) if the resulting `DateTime` is less than [System.DateTime.MinValue](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.minvalue?view=net-5.0) or greater than [System.DateTime.MaxValue](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.maxvalue?view=net-5.0).
+> All of these methods will still handle exceptions the same way that the `AddNNN()` methods handles exceptions, in that they will throw a [System.ArgumentOutOfRangeException](https://docs.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception?view=net-5.0) if the resulting `DateTime` is less than [System.DateTime.MinValue](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.minvalue?view=net-5.0) or greater than [System.DateTime.MaxValue](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.maxvalue?view=net-5.0).
 
 **C# source documentation**:
  * [System.DateTime.AddDays()](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.adddays?view=net-5.0)
  * [System.DateTime.AddYears()](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.addyears?view=net-5.0)
+
+#### Dynamically modifying a `System.DateTime`
+The library provides another declarative extension method to dynamically modify a `System.DateTime` instance, called `DateTime.AddByUnit()`. Internally, it maps the member of the UnitOfTime enum to a function call. The method signature follows as:
+```c#
+AddByUnit(DateTime, int, UnitOfTime);
+```
+**Usage**
+```c#
+// e.g today is March 20th, 2021, at 1:35:59 PM (13:35:59), on Saturday
+// outputted as a string in standard format as: 03/20/2021 13:35:59
+DateTime today = DateTime.Now;
+
+// Go forward 2 weeks
+today.AddByUnit( 2, UnitOfTime.Week ); // 04/03/2021 13:35:59 (DateTime instance)
+
+// Go back 3 days
+today.AddByUnit( -3, UnitOfTime.Day ); // 03/17/2021 13:35:59 (DateTime instance)
+```
 
 ## Notes
  * Languages supported: English
