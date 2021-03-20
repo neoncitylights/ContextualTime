@@ -32,10 +32,10 @@ All phrases inherit from a common abstract class known as `TimePhrase`.
 Parser parser = new();
 
 // where today is e.g March 16th, 2021 00:52:19 (Tuesday)
-var yesterday = parser.parse("yesterday"); // new YesterdayPhrase();
-var tomorrow = parser.parse("tomorrow"); // new TomorrowPhrase();
-var wayInTheFuture = parser.parse("next 2 centuries"); // new NextPhrase( 2, UnitOfTime.Century );
-var friday = parser.parse("on Friday"); // new OnPhrase( DayOfWeek.Tuesday, DayOfWeek.Friday );
+var yesterday = parser.parse( "yesterday" ); // new YesterdayPhrase();
+var tomorrow = parser.parse( "tomorrow" ); // new TomorrowPhrase();
+var wayInTheFuture = parser.parse( "next 2 centuries" ); // new NextPhrase( 2, UnitOfTime.Century );
+var friday = parser.parse( "on Friday" ); // new OnPhrase( DayOfWeek.Tuesday, DayOfWeek.Friday );
 ```
 
 Every time phrase contains these properties:
@@ -77,11 +77,11 @@ friday.GetAsDateTime().ToString(); // 03/19/2021 00:52:19
 ```
 
 ### Extension methods for `System.DateTime`
-The ContextualTime library provides extension methods that extend the `System.DateTime` class:
- * `DateTime.AddWeeks(int)`: Implemented internally as `DateTime.AddDays(n * 7)`
- * `DateTime.AddDecades(int)`: Implemented internally as `DateTime.AddYears(n * 10)`
- * `DateTime.AddCenturies(int)`: Implemented internally as `DateTime.AddYears(n * 100)`
- * `DateTime.AddMillenniums(int)`: Implemented internally as `DateTime.AddYears(n * 1000)`
+The ContextualTime library provides the [DateTimeExtensions](./src/ContextualTime/DateTimeExtensions.cs) class, which holds extension methods for the `System.DateTime` class.
+ * `DateTime.AddWeeks( int )`: Implemented internally as `DateTime.AddDays( n * 7 )`
+ * `DateTime.AddDecades( int )`: Implemented internally as `DateTime.AddYears( n * 10 )`
+ * `DateTime.AddCenturies( int )`: Implemented internally as `DateTime.AddYears( n * 100 )`
+ * `DateTime.AddMillenniums( int )`: Implemented internally as `DateTime.AddYears( n * 1000 )`
 
 > All of these methods will still handle exceptions the same way that the `AddNNN()` methods handles exceptions, in that they will throw a [System.ArgumentOutOfRangeException](https://docs.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception?view=net-5.0) if the resulting `DateTime` is less than [System.DateTime.MinValue](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.minvalue?view=net-5.0) or greater than [System.DateTime.MaxValue](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.maxvalue?view=net-5.0).
 
@@ -92,7 +92,7 @@ The ContextualTime library provides extension methods that extend the `System.Da
 #### Dynamically modifying a `System.DateTime`
 The library provides another declarative extension method to dynamically modify a `System.DateTime` instance, called `DateTime.AddByUnit()`. Internally, it maps the member of the UnitOfTime enum to a function call. The method signature follows as:
 ```c#
-AddByUnit(DateTime, int, UnitOfTime);
+AddByUnit( DateTime, int, UnitOfTime );
 ```
 **Usage**
 ```c#
