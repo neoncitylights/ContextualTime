@@ -6,6 +6,18 @@
 **ContextualTime** is an experimental NLP library for understanding phrases related to dates and time, and convert it to
 machine-readable data.
 
+## Overview
+- [ContextualTime](#contextualtime)
+	- [Overview](#overview)
+	- [System requirements](#system-requirements)
+	- [Concepts](#concepts)
+	- [Public API](#public-api)
+		- [Usage](#usage)
+		- [Extension methods for `System.DateTime`](#extension-methods-for-systemdatetime)
+			- [Dynamically modifying a `System.DateTime`](#dynamically-modifying-a-systemdatetime)
+	- [Notes](#notes)
+	- [License](#license)
+
 ## System requirements
 * .NET version: 5.x ([C# language version](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version#defaults): 9.0)
 
