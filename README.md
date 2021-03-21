@@ -11,6 +11,7 @@ machine-readable data.
 	- [Overview](#overview)
 	- [System requirements](#system-requirements)
 	- [Concepts](#concepts)
+	- [Supported expressions](#supported-expressions)
 	- [Public API](#public-api)
 		- [Usage](#usage)
 		- [Extension methods for `System.DateTime`](#extension-methods-for-systemdatetime)
@@ -23,6 +24,16 @@ machine-readable data.
 
 ## Concepts
 There are certain concepts that are mentioned throughout this documentation. It may help to read the [glossary](./GLOSSARY.md) file before proceeding further. 
+
+## Supported expressions
+> * A question mark indicator (`?`) denotes that the token on the immediate left hand side is optional.
+
+ - [x] `today`
+ - [x] `yesterday`
+ - [x] `tomorrow`
+ - [x] `last <quantity>? <unit-of-time>`
+ - [x] `next <quantity>? <unit-of-time>`
+ - [x] `on <day-of-week>`
 
 ## Public API
 ### Usage
