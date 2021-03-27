@@ -3,8 +3,7 @@
 [![.NET](https://github.com/neoncitylights/ContextualTime/actions/workflows/dotnet.yml/badge.svg)](https://github.com/neoncitylights/ContextualTime/actions/workflows/dotnet.yml)
 [![CodeQL](https://github.com/neoncitylights/ContextualTime/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/neoncitylights/ContextualTime/actions/workflows/codeql-analysis.yml)
 
-**ContextualTime** is an experimental NLP library for understanding phrases related to dates and time, and convert it to
-machine-readable data.
+**ContextualTime** is an experimental NLP library for understanding phrases related to dates and time, and converting them to machine-readable data.
 
 ## Overview
 - [ContextualTime](#contextualtime)
@@ -94,6 +93,20 @@ The ContextualTime library provides the [DateTimeExtensions](./src/ContextualTim
  * `DateTime.AddCenturies( int )`: Implemented internally as `DateTime.AddYears( n * 100 )`
  * `DateTime.AddMillenniums( int )`: Implemented internally as `DateTime.AddYears( n * 1000 )`
 
+To go backwards in time, you can pass a negative integer. For example:
+```c#
+// going back 3 weeks
+DateTime.Now.AddWeeks( -3 );
+
+// Going back 2 decades
+DateTime.Now.AddDecades( -2 );
+
+// Going back 5 centuries
+DateTime.AddCenturies( -4 );
+
+// going back 7 millenniums
+DateTime.Now.AddMillenniums( -7 ); 
+```
 > All of these methods will still handle exceptions the same way that the `AddNNN()` methods handles exceptions, in that they will throw a [System.ArgumentOutOfRangeException](https://docs.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception?view=net-5.0) if the resulting `DateTime` is less than [System.DateTime.MinValue](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.minvalue?view=net-5.0) or greater than [System.DateTime.MaxValue](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.maxvalue?view=net-5.0).
 
 **C# source documentation**:
