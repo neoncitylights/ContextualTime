@@ -101,7 +101,7 @@ DateTime.Now.AddWeeks( -3 );
 // Going back 2 decades
 DateTime.Now.AddDecades( -2 );
 
-// Going back 5 centuries
+// Going back 4 centuries
 DateTime.AddCenturies( -4 );
 
 // going back 7 millenniums
