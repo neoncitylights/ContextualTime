@@ -1,6 +1,8 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ContextualTime {
+	[SuppressMessage( "ReSharper", "MemberCanBePrivate.Global" )]
 	public static class DateTimeExtensions {
 		/// <summary>
 		/// Extension method to expressively modify a <see cref="DateTime"/> instance
